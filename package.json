@@ -1,0 +1,15 @@
+{
+  "name": "pmc_shared_repo",
+  "version": "0.0.0",
+  "scripts": {
+    "format": "prisma format --schema src/prisma "
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pepeland-Modpack-Customizer/Shared-Repo.git"
+  },
+  "private": true,
+  "devDependencies": {
+    "prisma": "^6.15.0"
+  }
+}
