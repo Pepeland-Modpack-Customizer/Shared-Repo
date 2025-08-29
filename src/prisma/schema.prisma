@@ -15,9 +15,27 @@ model User {
 }
 
 model Session {
-  sessionId String   @id @unique
-  userId    Int
-  user      User     @relation(fields: [userId], references: [id])
+  sessionId String          @id @unique
+  userId    Int             @unique
+  user      User            @relation(fields: [userId], references: [id])
   userAgent String
   expiresIn DateTime
+  actions   UserActionLog[]
+}
+
+model UserActionLog {
+  actionId   Int            @id @unique @default(autoincrement())
+  sessionId  String         @unique
+  session    Session        @relation(fields: [sessionId], references: [sessionId])
+  actionType UserActionType
+  actionTime DateTime       @default(now())
+  actionData Json?
+}
+
+enum UserActionType {
+  Login
+  Logout
+  DisplayNameChange
+  LoginMethodChange
+  ModpackChange
 }
