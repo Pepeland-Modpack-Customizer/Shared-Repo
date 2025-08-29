@@ -8,6 +8,7 @@
     "type": "git",
     "url": "https://github.com/Pepeland-Modpack-Customizer/Shared-Repo.git"
   },
+  "license": "LGPL-3.0-only",
   "private": true,
   "devDependencies": {
     "prisma": "^6.15.0"
