@@ -9,6 +9,15 @@ datasource db {
 }
 
 model User {
-  id          Int    @id @unique @default(autoincrement())
+  id          Int       @id @unique @default(autoincrement())
   displayName String
+  sessions    Session[]
+}
+
+model Session {
+  sessionId String   @id @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  userAgent String
+  expiresIn DateTime
 }
